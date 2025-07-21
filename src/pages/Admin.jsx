@@ -9,7 +9,7 @@ const Admin = () => {
         queryKey: ["admin_info"],
         queryFn: () =>
             getAllHandler(
-                `http://localhost:3000/api/v1/admin/info`
+                `https://job-board-d963.onrender.com/api/v1/admin/info`
             ),
     });
 

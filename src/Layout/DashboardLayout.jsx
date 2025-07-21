@@ -21,7 +21,7 @@ const DashboardLayout = () => {
             }
 
             const response = await axios.post(
-                "http://localhost:3000/api/v1/auth/logout",
+                "https://job-board-d963.onrender.com/api/v1/auth/logout",
                 {},
                 {
                     headers: { Authorization: `Bearer ${token}` },

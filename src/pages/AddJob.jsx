@@ -66,7 +66,7 @@ const AddJob = () => {
 
 
             const response = await axios.post(
-                "http://localhost:3000/api/v1/jobs/add",
+                "https://job-board-d963.onrender.com/api/v1/jobs/add",
                 newJob,
                 {
                     headers: { Authorization: `Bearer ${token}` },

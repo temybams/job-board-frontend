@@ -47,7 +47,7 @@ const JobContext = ({ children }) => {
 
     useEffect(() => {
         handleJobFetch(
-            `http://localhost:3000/api/v1/jobs/all/?page=1`
+            `https://job-board-d963.onrender.com//api/v1/jobs/all/?page=1`
 
         );
     }, []);

@@ -5,6 +5,8 @@ import styled from "styled-components";
 import LoadingComTwo from "../shared/LoadingComTwo";
 
 const Applicant = () => {
+    
+     const baseURL = import.meta.env.API_URL;
     const {
         isPending,
         isError,
@@ -20,7 +22,8 @@ const Applicant = () => {
             }
             
             const response = await axios.get(
-                `http://localhost:3000/api/v1/Application/applicant-jobs`,
+               
+                `${baseURL}/api/v1/Application/applicant-jobs`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                     withCredentials: true

@@ -6,17 +6,12 @@ import styled from "styled-components";
 
 const PaginationCom = () => {
     const { handleJobFetch, jobs } = useJobContext();
+    const baseURL = import.meta.env.API_URL;
 
     const handlePageClick = (e) => {
-        // const newOffset = (e.selected * itemsPerPage) % items.length;
-        // console.log(
-        //     `User requested page number ${e.selected}, which is offset ${newOffset}`
-        // );
-        // setItemOffset(newOffset);
+        
         handleJobFetch(
-            `http://localhost:3000/api/v1/Jobs?page=${
-                e.selected + 1
-            }&limit=5`
+            `${baseURL}/api/v1/Jobs/all/?page=${e.selected + 1}&limit=5`
         );
     };
 

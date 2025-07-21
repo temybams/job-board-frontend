@@ -20,7 +20,7 @@ const ManageUsers = () => {
     } = useQuery({
         queryKey: ["users"],
         queryFn: () =>
-            getAllHandler(`http://localhost:3000/api/v1/Users/all`),
+            getAllHandler(`https://job-board-d963.onrender.com/api/v1/Users/all`),
     });
 
     const updateUserModal = (id, role) => {
@@ -49,7 +49,7 @@ const ManageUsers = () => {
 
 
             const response = await axios.patch(
-                `http://localhost:3000/api/v1/admin/update-role/${id}`, { role },
+                `https://job-board-d963.onrender.com/api/v1/admin/update-role/${id}`, { role },
 
                 {
                     headers: {

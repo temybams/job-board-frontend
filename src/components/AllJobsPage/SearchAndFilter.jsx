@@ -14,9 +14,11 @@ const SearchAndFilter = () => {
     const [sortBy, setSortBy] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
 
+    const baseURL = import.meta.env.API_URL;
+
     useEffect(() => {
         const baseUrl =
-            "http://localhost:3000/api/v1/Jobs/all/?page=1&limit=5";
+            `${baseURL}/api/v1/Jobs/all/?page=1&limit=5`;
         let url = baseUrl;
         const queryParams = {};
 

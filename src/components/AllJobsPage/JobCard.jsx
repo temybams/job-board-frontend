@@ -17,6 +17,7 @@ import { postHandler } from "../../utils/FetchHandlers";
 import Swal from "sweetalert2";
 
 const JobCard = ({ job }) => {
+    const baseURL = import.meta.env.API_URL;
     const date = dayjs(job?.jobDeadline).format("MMM Do, YYYY");
     const { user } = useUserContext();
 
@@ -33,7 +34,7 @@ const JobCard = ({ job }) => {
         };
         try {
             const response = await postHandler({
-                url: "http://localhost:3000/api/v1/Application/apply",
+                url: (`${baseURL}/api/v1/Application/apply`),
                 body: appliedJob,
             });
             Swal.fire({

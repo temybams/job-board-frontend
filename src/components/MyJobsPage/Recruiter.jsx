@@ -23,7 +23,7 @@ const Recruiter = () => {
                 throw new Error("Unauthorized: No token found");
             }
             const response = await axios.get(
-                `http://localhost:3000/api/v1/Application/recruiter-jobs`,
+                `https://job-board-d963.onrender.com/api/v1/Application/recruiter-jobs`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                     withCredentials: true,
@@ -59,7 +59,7 @@ const Recruiter = () => {
         const newStatus = { recruiterId, status: "accepted" };
         updateJobStatusMutation.mutate({
             body: newStatus,
-            url: `http://localhost:3000/api/v1/Application/update/${id}`,
+            url: `https://job-board-d963.onrender.com/api/v1/Application/update/${id}`,
         });
     };
 
@@ -67,7 +67,7 @@ const Recruiter = () => {
         const newStatus = { recruiterId, status: "rejected" };
         updateJobStatusMutation.mutate({
             body: newStatus,
-            url: `http://localhost:3000/api/v1/Application/update/${id}`,
+            url: `https://job-board-d963.onrender.com/api/v1/Application/update/${id}`,
         });
     };
 

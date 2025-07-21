@@ -51,7 +51,7 @@ const EditProfile = () => {
             }
 
             const response = await axios.patch(
-                `http://localhost:3000/api/v1/users/update/${id}`,
+                `https://job-board-d963.onrender.com/api/v1/users/update/${id}`,
                 updateUser,
                 {
                     headers: { Authorization: `Bearer ${token}` },

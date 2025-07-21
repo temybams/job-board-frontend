@@ -16,7 +16,7 @@ const UserContext = ({ children }) => {
                 throw new Error("No token found, please log in again.");
             }
 
-            const response = await axios.get("http://localhost:3000/api/v1/auth/me", {
+            const response = await axios.get("https://job-board-d963.onrender.com/api/v1/auth/me", {
                 headers: { Authorization: `Bearer ${token}` },  
             });
 

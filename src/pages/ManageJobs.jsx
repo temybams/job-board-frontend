@@ -25,7 +25,7 @@ const ManageJobs = () => {
         queryKey: ["my-jobs"],
         queryFn: () =>
             getAllHandler(
-                `http://localhost:3000/api/v1/jobs/my-jobs`
+                `https://job-board-d963.onrender.com/api/v1/jobs/my-jobs`
             ),
     });
 
@@ -53,7 +53,7 @@ const ManageJobs = () => {
             }
 
             const response = await axios.delete(
-                `http://localhost:3000/api/v1/jobs/${id}`,
+                `https://job-board-d963.onrender.com/api/v1/jobs/${id}`,
 
                 {
                     headers: {
