@@ -17,13 +17,15 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/"; // Navigate to correct location after login
 
+    const baseURL = import.meta.env.API_URL;
+
     const onSubmit = async (data) => {
         setIsLoading(true);
 
         try {
             // Posting login credentials
             const response = await axios.post(
-                "https://job-board-d963.onrender.com/api/v1/Auth/login",
+                `${baseURL}/api/v1/Auth/login`,
                 data,
                 { withCredentials: true }
             );
