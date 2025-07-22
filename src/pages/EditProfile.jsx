@@ -20,6 +20,8 @@ const EditProfile = () => {
     const { user, handleFetchMe } = useUserContext();
     const navigate = useNavigate();
 
+     const baseURL = import.meta.env.VITE_API_URL;
+
     const {
         register,
         handleSubmit,
@@ -51,7 +53,7 @@ const EditProfile = () => {
             }
 
             const response = await axios.patch(
-                `https://job-board-d963.onrender.com/api/v1/users/update/${id}`,
+                `${baseURL}/api/v1/users/update/${id}`,
                 updateUser,
                 {
                     headers: { Authorization: `Bearer ${token}` },

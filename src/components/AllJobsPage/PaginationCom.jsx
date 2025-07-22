@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const PaginationCom = () => {
     const { handleJobFetch, jobs } = useJobContext();
-    const baseURL = import.meta.env.API_URL;
+    const baseURL = import.meta.env.VITE_API_URL;
 
     const handlePageClick = (e) => {
         

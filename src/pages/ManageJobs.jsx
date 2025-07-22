@@ -15,6 +15,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllHandler } from "../utils/FetchHandlers";
 
 const ManageJobs = () => {
+
+     const baseURL = import.meta.env.VITE_API_URL;
     const {
         isPending,
         isError,
@@ -25,7 +27,7 @@ const ManageJobs = () => {
         queryKey: ["my-jobs"],
         queryFn: () =>
             getAllHandler(
-                `https://job-board-d963.onrender.com/api/v1/jobs/my-jobs`
+                `${baseURL}/api/v1/jobs/my-jobs`
             ),
     });
 
@@ -53,7 +55,7 @@ const ManageJobs = () => {
             }
 
             const response = await axios.delete(
-                `https://job-board-d963.onrender.com/api/v1/jobs/${id}`,
+                `${baseURL}/api/v1/jobs/${id}`,
 
                 {
                     headers: {

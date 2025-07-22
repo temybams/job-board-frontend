@@ -17,7 +17,7 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/"; // Navigate to correct location after login
 
-    const baseURL = import.meta.env.API_URL;
+    const baseURL = import.meta.env.VITE_API_URL;
 
     const onSubmit = async (data) => {
         setIsLoading(true);
@@ -40,8 +40,8 @@ const Login = () => {
                 text: response?.data?.message || "Login successful",
             });
 
-            handleFetchMe();  
-            
+            handleFetchMe();
+
             reset();  // Reset form fields
             navigate("/");
 
@@ -49,7 +49,7 @@ const Login = () => {
             console.error("Login error:", error);
 
             // Handle error: Show an appropriate error message
-            const errorMessage = error?.response?.data?.data.message ;
+            const errorMessage = error?.response?.data?.data.message;
             Swal.fire({
                 icon: "error",
                 title: "Oops...",

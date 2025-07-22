@@ -18,6 +18,9 @@ import Navbar from "../components/shared/Navbar";
 dayjs.extend(advancedFormat);
 
 const Job = () => {
+
+     const baseURL = import.meta.env.VITE_API_URL;
+
     const { id } = useParams();
     const {
         isLoading,
@@ -28,7 +31,7 @@ const Job = () => {
         queryKey: ["job"],
         queryFn: () =>
             getSingleHandler(
-                `https://job-board-d963.onrender.com/api/v1/jobs/${id}`
+                `${baseURL}/api/v1/jobs/${id}`
             ),
     });
 

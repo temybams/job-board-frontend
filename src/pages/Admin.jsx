@@ -5,11 +5,14 @@ import { getAllHandler } from "../utils/FetchHandlers";
 import LoadingComTwo from "../components/shared/LoadingComTwo";
 
 const Admin = () => {
+
+    const baseURL = import.meta.env.VITE_API_URL;
+
     const { isPending, isError, data, error } = useQuery({
         queryKey: ["admin_info"],
         queryFn: () =>
             getAllHandler(
-                `https://job-board-d963.onrender.com/api/v1/admin/info`
+                `${baseURL}/api/v1/admin/info`
             ),
     });
 

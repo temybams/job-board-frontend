@@ -10,6 +10,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const ManageUsers = () => {
+ const baseURL = import.meta.env.VITE_API_URL;
+
     const { user: me } = useUserContext();
     const {
         isPending,
@@ -20,7 +22,7 @@ const ManageUsers = () => {
     } = useQuery({
         queryKey: ["users"],
         queryFn: () =>
-            getAllHandler(`https://job-board-d963.onrender.com/api/v1/Users/all`),
+            getAllHandler(`${baseURL}/api/v1/Users/all`),
     });
 
     const updateUserModal = (id, role) => {
@@ -49,7 +51,7 @@ const ManageUsers = () => {
 
 
             const response = await axios.patch(
-                `https://job-board-d963.onrender.com/api/v1/admin/update-role/${id}`, { role },
+                `${baseURL}/api/v1/admin/update-role/${id}`, { role },
 
                 {
                     headers: {

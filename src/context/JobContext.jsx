@@ -9,6 +9,8 @@ const JobContext = ({ children }) => {
     const [jobError, setJobError] = useState({ status: false, message: "" });
     const [jobs, setJobs] = useState({ result: [], pageCount: 0 });
 
+    const baseURL = import.meta.env.VITE_API_URL;
+
     const handleJobFetch = async (url) => {
         setJobLoading(true);
         try {
@@ -47,7 +49,7 @@ const JobContext = ({ children }) => {
 
     useEffect(() => {
         handleJobFetch(
-            `https://job-board-d963.onrender.com//api/v1/jobs/all/?page=1`
+            `${baseURL}/api/v1/jobs/all/?page=1`
 
         );
     }, []);

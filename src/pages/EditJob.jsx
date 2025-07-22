@@ -25,6 +25,8 @@ import { useQuery, useMutation, QueryClient } from "@tanstack/react-query";
 const queryClient = new QueryClient(); // Create a client
 
 const EditJob = () => {
+
+    const baseURL = import.meta.env.VITE_API_URL;
     const { id } = useParams();
     const {
         isPending,
@@ -35,7 +37,7 @@ const EditJob = () => {
         queryKey: ["updateJob"],
         queryFn: () =>
             getSingleHandler(
-                `https://job-board-d963.onrender.com/api/v1/jobs/${id}`
+                `${baseURL}/api/v1/jobs/${id}`
             ),
     });
 
@@ -98,7 +100,7 @@ const EditJob = () => {
         // posting;
         updateJobMutation.mutate({
             body: updateJob,
-            url: `https://job-board-d963.onrender.com/api/v1/jobs/${id}`,
+            url: `${baseURL}/api/v1/jobs/${id}`,
         });
     };
     // const onSubmit = (data) => {

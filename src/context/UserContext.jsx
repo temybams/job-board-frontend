@@ -8,15 +8,19 @@ const UserContext = ({ children }) => {
     const [userError, setUserError] = useState({ status: false, message: "" });
     const [user, setUser] = useState({});
 
+    const baseURL = import.meta.env.VITE_API_URL;
+
     const handleFetchMe = async () => {
         setUserLoading(true);
+
+        
         try {
             const token = localStorage.getItem('token');  
             if (!token) {
                 throw new Error("No token found, please log in again.");
             }
 
-            const response = await axios.get("https://job-board-d963.onrender.com/api/v1/auth/me", {
+            const response = await axios.get(`${baseURL}/api/v1/auth/me`, {
                 headers: { Authorization: `Bearer ${token}` },  
             });
 

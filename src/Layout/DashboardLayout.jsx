@@ -13,6 +13,8 @@ const DashboardLayout = () => {
     const { handleFetchMe, user } = useUserContext();
     const [showSidebar, setShowSidebar] = useState(false);
 
+    const baseURL = import.meta.env.VITE_API_URL;
+
     const handleLogout = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -21,7 +23,7 @@ const DashboardLayout = () => {
             }
 
             const response = await axios.post(
-                "https://job-board-d963.onrender.com/api/v1/auth/logout",
+               `${baseURL}/api/v1/auth/logout`,
                 {},
                 {
                     headers: { Authorization: `Bearer ${token}` },

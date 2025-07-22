@@ -9,6 +9,8 @@ import Swal from "sweetalert2";
 const queryClient = new QueryClient();
 
 const Recruiter = () => {
+    const baseURL = import.meta.env.VITE_API_URL;
+
     const {
         isPending,
         isError,
@@ -23,7 +25,7 @@ const Recruiter = () => {
                 throw new Error("Unauthorized: No token found");
             }
             const response = await axios.get(
-                `https://job-board-d963.onrender.com/api/v1/Application/recruiter-jobs`,
+                `${baseURL}/api/v1/Application/recruiter-jobs`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                     withCredentials: true,
@@ -59,7 +61,7 @@ const Recruiter = () => {
         const newStatus = { recruiterId, status: "accepted" };
         updateJobStatusMutation.mutate({
             body: newStatus,
-            url: `https://job-board-d963.onrender.com/api/v1/Application/update/${id}`,
+            url: `${baseURL}/api/v1/Application/update/${id}`,
         });
     };
 
@@ -67,7 +69,7 @@ const Recruiter = () => {
         const newStatus = { recruiterId, status: "rejected" };
         updateJobStatusMutation.mutate({
             body: newStatus,
-            url: `https://job-board-d963.onrender.com/api/v1/Application/update/${id}`,
+            url: `${baseURL}/api/v1/Application/update/${id}`,
         });
     };
 

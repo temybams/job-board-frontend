@@ -8,6 +8,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const Register = () => {
+
+    const baseURL = import.meta.env.VITE_API_URL;
     const {
         register,
         handleSubmit,
@@ -38,7 +40,7 @@ const Register = () => {
             // posting
             try {
                 const response = await axios.post(
-                    "https://job-board-d963.onrender.com/api/v1/auth/register",
+                    `${baseURL}/api/v1/auth/register`,
                     user
                 );
 

@@ -17,7 +17,7 @@ import { postHandler } from "../../utils/FetchHandlers";
 import Swal from "sweetalert2";
 
 const JobCard = ({ job }) => {
-    const baseURL = import.meta.env.API_URL;
+    const baseURL = import.meta.env.VITE_API_URL;
     const date = dayjs(job?.jobDeadline).format("MMM Do, YYYY");
     const { user } = useUserContext();
 
@@ -43,7 +43,7 @@ const JobCard = ({ job }) => {
                 text: response?.data?.message,
             });
         } catch (error) {
-           console.log(error.response.data);
+            console.log(error.response.data);
 
             if (error?.response?.data) {
                 Swal.fire({

@@ -14,7 +14,7 @@ const SearchAndFilter = () => {
     const [sortBy, setSortBy] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
 
-    const baseURL = import.meta.env.API_URL;
+    const baseURL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         const baseUrl =
@@ -34,9 +34,9 @@ const SearchAndFilter = () => {
         if (sortBy) {
             queryParams.sort = sortBy;
         }
-        
 
-        
+
+
         // Constructing query string
         const queryString = new URLSearchParams(queryParams).toString();
 

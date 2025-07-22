@@ -27,6 +27,9 @@ const AddJob = () => {
     const [skills, setSkills] = useState([]);
     const [facilities, setFacilities] = useState([]);
 
+
+    const baseURL = import.meta.env.VITE_API_URL;
+
     const {
         register,
         handleSubmit,
@@ -66,7 +69,7 @@ const AddJob = () => {
 
 
             const response = await axios.post(
-                "https://job-board-d963.onrender.com/api/v1/jobs/add",
+                `${baseURL}/api/v1/jobs/add`,
                 newJob,
                 {
                     headers: { Authorization: `Bearer ${token}` },

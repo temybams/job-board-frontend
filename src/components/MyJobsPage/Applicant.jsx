@@ -5,8 +5,8 @@ import styled from "styled-components";
 import LoadingComTwo from "../shared/LoadingComTwo";
 
 const Applicant = () => {
-    
-     const baseURL = import.meta.env.API_URL;
+
+    const baseURL = import.meta.env.VITE_API_URL;
     const {
         isPending,
         isError,
@@ -15,14 +15,14 @@ const Applicant = () => {
     } = useQuery({
         queryKey: ["my-jobs"],
         queryFn: async () => {
-            
+
             const token = localStorage.getItem("token");
             if (!token) {
                 throw new Error("Unauthorized: No token found");
             }
-            
+
             const response = await axios.get(
-               
+
                 `${baseURL}/api/v1/Application/applicant-jobs`,
                 {
                     headers: { Authorization: `Bearer ${token}` },

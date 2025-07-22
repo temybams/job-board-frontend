@@ -27,12 +27,14 @@ import { MdOutlineStackedBarChart } from "react-icons/md";
 import { SlGraph } from "react-icons/sl";
 
 const Stats = () => {
+
+    const baseURL = import.meta.env.VITE_API_URL;
     const [isShowBarChart, setIsShowBarChart] = useState(false);
     const { isPending, isError, data, error } = useQuery({
         queryKey: ["stats"],
         queryFn: () =>
             getAllHandler(
-                `https://job-board-d963.onrender.com/api/v1/admin/stats`
+                `${baseURL}/api/v1/admin/stats`
             ),
     });
 
